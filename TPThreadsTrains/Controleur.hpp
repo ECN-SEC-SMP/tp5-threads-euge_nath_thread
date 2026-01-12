@@ -17,7 +17,7 @@ public:
 
     bool controlinEnB(int numero)
     {
-        if (this->val <= 0)
+        if ((this->val <= 0) && (this->val > -2))
         {
             this->val--;
             // std::cout << "inB Val = " << this->val << "\n";
@@ -28,7 +28,7 @@ public:
 
     bool controlinEnA(int numero)
     {
-        if (this->val >= 0)
+        if ((this->val >= 0) && (this->val < 2))
         {
             this->val++;
             // std::cout << "inA Val = " << this->val << "\n";
