@@ -1,38 +1,54 @@
 #ifndef CONTROLEUR_HPP
 #define CONTROLEUR_HPP
 
-#include <thread>             
+#include <thread>
 #include <iostream>
 #include <mutex>
 #include <condition_variable>
 
-using namespace std; 
+using namespace std;
 
-class Controleur {
-  public:
-    Controleur (int valeur_initiale) : 
-    val(valeur_initiale)
+class Controleur
+{
+public:
+    Controleur(int valeur_initiale) : val(valeur_initiale)
     {
     }
-    
-    bool controlinEnB(int numero) { 
-        return true;
-    }  
 
-    bool controlinEnA(int numero) { 
-        return true;
-    }  
-
-    bool controloutEnB(int numero){ 
-      return true ;
+    bool controlinEnB(int numero)
+    {
+        if (this->val == 0)
+        {
+            this->val++;
+            return true;
+        }
+        return false;
     }
 
-    bool controloutEnA(int numero){ 
-      return true;
+    bool controlinEnA(int numero)
+    {
+        if (this->val == 0)
+        {
+            this->val++;
+            return true;
+        }
+        return false;
     }
 
-  private:
+    bool controloutEnB(int numero)
+    {
+        this->val--;
+        return true;
+    }
+
+    bool controloutEnA(int numero)
+    {
+        this->val--;
+        return true;
+    }
+
+private:
     int val;
 };
 
-#endif //CONTROLEUR_HPP
+#endif // CONTROLEUR_HPP
