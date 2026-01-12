@@ -17,9 +17,10 @@ public:
 
     bool controlinEnB(int numero)
     {
-        if (this->val == 0)
+        if (this->val <= 0)
         {
-            this->val++;
+            this->val--;
+            // std::cout << "inB Val = " << this->val << "\n";
             return true;
         }
         return false;
@@ -27,9 +28,10 @@ public:
 
     bool controlinEnA(int numero)
     {
-        if (this->val == 0)
+        if (this->val >= 0)
         {
             this->val++;
+            // std::cout << "inA Val = " << this->val << "\n";
             return true;
         }
         return false;
@@ -37,14 +39,22 @@ public:
 
     bool controloutEnB(int numero)
     {
-        this->val--;
-        return true;
+        if (this->val > 0) {
+            // std::cout << "outB Val = " << this->val << "\n";
+            this->val--;
+            return true;
+        }
+        return false;
     }
 
     bool controloutEnA(int numero)
     {
-        this->val--;
-        return true;
+        if (this->val < 0) {
+            // std::cout << "outA Val = " << this->val << "\n";
+            this->val++;
+            return true;
+        }
+        return false;
     }
 
 private:
